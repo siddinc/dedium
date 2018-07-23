@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Medium style editor -->
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:700|Press+Start+2P|Roboto+Mono" rel="stylesheet">
+
+  <body class="mainclass">
+
+        <nav class="navbar navbar-default techfont navbar-static-top">
+          <div class="container-fluid">
+            <ul class="nav navbar-nav">
+              <li><a class="navbar-brand bigbrand" href="{% url 'post_list' %}">dEdium</a></li>
+              <li class="x10"><a href="{% url 'about' %}"><span class="glyphicon glyphicon-bookmark"></span> About</a></li>
+              <li class="x10"><a href="https://github.com/siddinc"><span class="glyphicon glyphicon-cog"></span> GitHub</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              {% if user.is_authenticated %}
+                <li class="x10">
+                  <a href="{% url 'post_new' %}"><span class="glyphicon glyphicon-pencil"></span> New Post</a>
+                </li>
+                <li class="x10">
+                  <a href="{% url 'post_draft_list' %}"><span class="glyphicon glyphicon-file"></span> Drafts</a>
+                </li>
+                <li class="x10">
+                  <a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span> Sign Out</a>
+                </li>
+                <li>
+                  <a><span class="glyphicon glyphicon-map-marker"></span> Hello, {{ user.username }}</a>
+                </li>
+              {% else %}
+                <li class="x10"><a class="nav navbar-right" href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span> Sign in</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Content block -->
+        <div class="container content">
+          <div class="blog_posts">
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+          <div class="footer-copyright">
+            <style>.heart{color:#e25555;}</style>
+            Made with <span class="heart">❤</span> in Bombay
+          </div>
+        </footer>
+
+  </body>
+</html>

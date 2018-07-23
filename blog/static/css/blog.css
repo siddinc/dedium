@@ -1,0 +1,88 @@
+.mainclass {
+  background: #B993D6;
+  background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);
+  background: linear-gradient(to right, #8CA6DB, #B993D6);
+}
+
+.x10:hover {
+  background-color: #a8c0ff;
+}
+
+.page-footer {
+  color: white;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bolder;
+}
+
+.techfont {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.bigbrand {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5em;
+}
+
+.centerstage {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.postdate {
+  text-align: center;
+}
+
+.posttitle {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 3em;
+  text-align: center;
+}
+
+
+.postcontent {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.5em;
+}
+
+.btn-comment {
+  position: absolute;
+  right: 0px;
+}
+
+#x1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3em;
+  text-align: center;
+}
+
+#x2 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.5em;
+}
+
+#x3 {
+  text-align: center;
+}
+
+#x4 {
+  font-size: 0.7em;
+  font-family: 'Fjalla One', sans-serif;
+}
+
+#x5 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5em;
+}
+
+.date {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.4em;
+}
+
+.commentcount {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.4em;
+}

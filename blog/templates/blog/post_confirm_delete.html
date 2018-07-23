@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+  {% block content %}
+
+    <div class="jumbotron">
+      <form method="POST">
+        {% csrf_token %}
+        <p id="x5">Are you sure you want to delete <span><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></span>?</p>
+        <button type="submit" class="save btn btn-danger" name="button"><span class="glyphicon glyphicon-trash"></span> Confirm Delete</button>
+      </form>
+    </div>
+    
+  {% endblock %}
