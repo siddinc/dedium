@@ -26,13 +26,16 @@
 
   <body class="mainclass">
 
+      <canvas id="stars"></canvas>
+
         <nav class="navbar navbar-default techfont navbar-static-top">
-          <div class="container-fluid">
+          <div class="container">
             <ul class="nav navbar-nav">
               <li><a class="navbar-brand bigbrand" href="{% url 'post_list' %}">dEdium</a></li>
               <li class="x10"><a href="{% url 'about' %}"><span class="glyphicon glyphicon-bookmark"></span> About</a></li>
               <li class="x10"><a href="https://github.com/siddinc"><span class="glyphicon glyphicon-cog"></span> GitHub</a></li>
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
               {% if user.is_authenticated %}
                 <li class="x10">
@@ -48,27 +51,41 @@
                   <a><span class="glyphicon glyphicon-map-marker"></span> Hello, {{ user.username }}</a>
                 </li>
               {% else %}
-                <li class="x10"><a class="nav navbar-right" href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span> Sign in</a></li>
+                <li><a class="nav navbar-right" href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span>  Sign in</a></li>
               {% endif %}
             </ul>
           </div>
         </nav>
 
-        <!-- Content block -->
-        <div class="container content">
-          <div class="blog_posts">
-            {% block content %}
-            {% endblock %}
-          </div>
-        </div>
 
+
+
+
+    <!-- Content block -->
+
+      <div class="container content">
+            <div class="blog_posts">
+              {% block content %}
+              {% endblock %}
+            </div>
+      </div>
+
+
+      <!-- Footer -->
+      <footer class="page-footer">
+        <div class="footer-copyright">
+          <style>.heart{color:#e25555;}</style>
+          Made with <span class="heart">❤</span> in Bombay
+        </div>
+      </footer>
         <!-- Footer -->
-        <footer class="page-footer">
-          <div class="footer-copyright">
-            <style>.heart{color:#e25555;}</style>
-            Made with <span class="heart">❤</span> in Bombay
-          </div>
-        </footer>
+
+  <script src="{% static 'js/blog.stars.js' %}"></script>
+  <script>
+    canvas = document.getElementById ('stars');
+    document.body.style.background = 'url(' + canvas.toDataURL() + ')';
+  </script>
 
   </body>
+
 </html>
