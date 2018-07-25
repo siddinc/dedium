@@ -39,17 +39,17 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy('post_list')
 
-class DraftListView(LoginRequiredMixin, ListView):
-    login_url = '/login/'
-    redirect_field_name = 'blog/post_list.html'
-    model = Post
+#class DraftListView(LoginRequiredMixin, ListView):
+    #login_url = '/login/'
+    #redirect_field_name = 'blog/post_list.html'
+    #model = Post
 
-    def get_queryset(self):
+    #def get_queryset(self):
         return Post.objects.filter(published_date__isnull=True).order_by('created_date')
 
-#@login_required
-#def draftlistview(request):
-#    return render(request, 'blog/post_draft_list.html', {'posts': 'post_draft_list'})
+@login_required
+def draftlistview(request):
+    return render(request, 'post_draft_list.html', {'posts': 'Post.objects.filter(published_date__isnull=True).order_by('created_date')'})
 
 ####################################################################################################################
 #Function based views for comments
