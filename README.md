@@ -1,5 +1,5 @@
 # dEdium
-a clone of medium.com using django 2.0.5
+A clone of medium.com using django 2.0.5
 
 ## Run instructions
 
