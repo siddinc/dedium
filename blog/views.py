@@ -45,7 +45,7 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
 
 @login_required
 def draftlistview(request):
-    return render(request, 'post_draft_list.html', {'posts': Post.objects.filter(published_date__isnull=True).order_by("created_date")})
+    return render(request, 'post_draft_list.html', {'posts': Post.objects.filter(published_date__isnull=True).order_by('created_date')})
 
 ####################################################################################################################
 #Function based views for comments
