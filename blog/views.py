@@ -7,10 +7,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 
-
-# Create your views here.
-#Class based views for Posts
-
 class AboutView(TemplateView):
     template_name = 'about.html'
 
@@ -45,11 +41,11 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
     #model = Post
 
     #def get_queryset(self):
-        return Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    # return Post.objects.filter(published_date__isnull=True).order_by('created_date')
 
 @login_required
 def draftlistview(request):
-    return render(request, 'post_draft_list.html', {'posts': 'Post.objects.filter(published_date__isnull=True).order_by('created_date')'})
+    return render(request, 'post_draft_list.html', {'posts': Post.objects.filter(published_date__isnull=True).order_by("created_date")})
 
 ####################################################################################################################
 #Function based views for comments
